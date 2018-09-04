@@ -2,17 +2,20 @@
 
 import sys
 
-def climbing_stairs(n):
+def climbing_stairs(n, cache):
     if n == 0 or n == 1:
         return 1
     elif n == 2:
         return 2
     elif n == 3:
         return 4
+    elif cache[n] > 0:
+        return cache[n]
     else:
-        return(climbing_stairs(n-1) + climbing_stairs(n-2) + climbing_stairs(n-3))
+        cache[n] = climbing_stairs(n-1, cache) + climbing_stairs(n-2, cache) + climbing_stairs(n-3, cache)
+        return cache[n]
 
-print(climbing_stairs(5))
+print(climbing_stairs(500, [0 for i in range(501)]))
 
 if __name__ == "__main__":
     # Test out your implementation from the command line
