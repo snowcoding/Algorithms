@@ -2,7 +2,7 @@
 
 import argparse
 
-#Interative Solution
+#Interative Solution - O(n^2)
 def find_max_profit(prices):
     #Set max diff to -Inf
     max_diff = -float('Inf')
@@ -18,6 +18,21 @@ def find_max_profit(prices):
                 max_diff = buy - prices[sell_ind]
     return max_diff
 
+
+#Sean's Solution - O(n)
+def find_mp_rec(prices):
+    #keep track of min price we've seen
+    #keep track of max profit we've seen so far
+    #interate through our prices list an update these two vars
+
+    min_price = price[0]
+    max_profit = prices[1] - min_price
+
+    for i in range(1,len(prices)):
+        price = prices[i]
+        max_profit = max(price - min_price, max_profit)
+        min_price = min(price,min_price)
+    return max_profit
   
 print(find_max_profit([1050, 270, 1540, 3800, 2]))
 

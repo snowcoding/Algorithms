@@ -15,6 +15,15 @@ def climbing_stairs(n, cache):
         cache[n] = climbing_stairs(n-1, cache) + climbing_stairs(n-2, cache) + climbing_stairs(n-3, cache)
         return cache[n]
 
+#Sean's solution
+def climbing_stairs(n):
+    if n==0:
+        return 1
+    elif n<0:
+        return 0
+    elif 
+
+
 print(climbing_stairs(500, [0 for i in range(501)]))
 
 if __name__ == "__main__":
